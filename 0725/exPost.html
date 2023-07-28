@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        post 방식 통신
+        1. method 속성 이용 (설정이 없다면 default로 GET방식 통신!)
+        2. action에 통신할 서버주소 입력
+        3. name 속성 이용해서 key값 설정하기!.
+    -->
+    <form action = 'http://192.168.20.12:3003' method="post">
+        <input placeholder="ID 입력" name="inputId"><br>
+        <input placeholder="패스워드를 입력해주세요." type = 'password' name ='inputPw'><br>
+        <input type="submit">
+    </form>
+</body>
+</html>

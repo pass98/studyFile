@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h3> 실습
+        <!-- 회원가입 폼 
+        - 담당자 : 나범수
+        (23.06.08 12:31 나범수 수정 - 중복체크 추가)
+        => action : ~기능으로 간다
+        post 방식으로 데이터 전송시 body영역에 담아서 전송된다!
+        -->
+
+    <form  action ='http://192.168.21.32:3002'  method="post">   
+        <table width="400px">
+            <!-- step1 시작 -->
+            <tr>
+                <th align='left' colspan ='2' bgcolor="gray" width="400px" height="50px"> Step1 : 아이디/비번 입력 </th>
+            </tr>
+            <tr align = 'center' height ="35" bgcolor = "whitesmoke">
+                <td align = right>아이디</td>
+                <td align = left>
+                    <input type="text" name="inputId" id="">
+                </td>
+            </tr>
+            
+            <tr align = 'center' height ="35" bgcolor = "whitesmoke">
+
+                <td align = right>비밀번호</td>
+                <td align ='left'><input type="text" name="pw" id=""></td>
+                
+            </tr>
+            <tr align = 'center' height ="35" bgcolor = "whitesmoke">
+                <td align = 'right'>비밀번호 확인 </td>
+                <td align = 'left'><input type="text" name="repw" id=""></td>
+            </tr>
+            <!--개인정보(성별,혈액형,생일) -->
+            <tr>
+                <th align='left' colspan ='2' bgcolor="gray" width="400" height="50"> Step2 :개인정보 </th>
+        
+            </tr>
+            <tr align = 'center' height ="35" bgcolor = "whitesmoke">
+                <td align ='right' >성별</td>
+                <td align = 'left'>
+                    <!-- radio버튼, 체크박스 : name이 같아야한다! -->
+                <input type="radio" name="gender" value="남성" >남자
+                <input type="radio" name="gender" value="여성">여자</td>
+            </tr>
+            
+            <tr  height ="35" bgcolor = "whitesmoke">
+
+                <td align ='right'>혈액형</td>
+                <td>
+                    <select name="blood">
+                    <option>A</option>
+                    <option>B</option>
+                    <option>C</option>
+                    <option>D</option>
+                    </select>
+                </td>
+            </tr>
+            <tr align = 'center' height ="35" bgcolor = "whitesmoke">
+                <td align ='right'>생일 </td>
+                <td align = 'left'><input type="date" name="birth" id=""></td>
+            </tr>
+            <tr >
+                <th align='left' colspan ='2' bgcolor="gray" width="400" height="50"> Step3 : 선호도 </th>
+        
+            </tr>
+            <!-- 선호도를 작성하는 폼 -->
+            <tr align = 'center' height ="35" bgcolor = "whitesmoke">
+                <td align ='right'>취미</td>
+                <td align = 'left'>
+                    <!-- checkbox 선택된 값들이 배열 형태(['축구','야구'])로 넘어감-->
+                    축구<input type="checkbox" name="hobby" id="" value = 'sc'>
+                    농구<input type="checkbox" name="hobby" id="" value = 'bs'>
+                    야구<input type="checkbox" name="hobby" id="" value = 'bk'>
+                </td>
+            </tr>
+            
+            <tr align = 'center' height ="35" bgcolor = "whitesmoke">
+
+                <td align ='right'>좋아하는 색깔</td>
+                <td>   
+                    <input type="color" name="color" id="">
+                </td>
+                </tr>
+            
+            <tr >
+                <th align='left' colspan ='2' bgcolor="gray" width="400" height="50" name="inputText"> Step4 : 적고 싶은 말 </th>
+        
+            </tr>
+            <tr align = 'center' height ="35" bgcolor = "whitesmoke">
+                <td colspan="2"><textarea name="inputText" id="" cols="56" rows="5" style ='resize:none;'></textarea>
+                </td>
+            </tr>
+            <!--  style = "resize:none;"는 크기조절하지 못하게 하는 태그 -->
+            <tr>
+                <td align = 'center' colspan="2">
+                    <input type="submit" >
+                    <input type="reset" >
+                </td>
+            </tr>
+            
+          
+          
+
+            
+        </table>
+    </form> 
+</body>
+</html>
