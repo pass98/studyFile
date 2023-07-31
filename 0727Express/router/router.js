@@ -21,8 +21,10 @@ let conn = mysql.createConnection({
 //DB 연결 종료 
 
 // 기본 사이트 접속확인 라우터 사용법 *get방식
-router.get("/",function(request,respeonse){
+//http://localhost:3000
+router.get("/",function(request,response){
     console.log('접속확인')
+    response.render("ExTemp",{day:'월요일'})
 })
 
 // 입력을 필요하는 페이지와 일치하는지 확인하는법 -쿼리데이터를 연결함
@@ -56,15 +58,15 @@ let PW_2 = ""
 
 
 // 로그인 화면 서버 select 쿼리를 이용해서 입력값과 쿼리를 비교
-router.post('/login',function(request,respeonse){
+router.post('/login',function(request,response){
     console.log('로그인 화면 접속완료')
     let id = request.body.ID
     let pw = request.body.PW
-    let res = ''
+    
 
     conn.connect();
     
-    let sql = 'select * from member where id = ? and pw=?'
+    let sql = 'select * from member where id = ? and pw= ?'
     conn.query(sql,[id,pw],function(err,rows){
         if(!err){
             console.log('로그인 실행 완료!')
@@ -74,7 +76,7 @@ router.post('/login',function(request,respeonse){
             }
             else{
                 console.log('로그인 성공!')
-                respeonse.render('LoginS',{nick:rows[0].nick})
+                response.render('LoginS',{nick:rows[0].nick})
                 // response.redirect("http://localhost:5500/0727Express/public/Main.html")
             }
         }else{
@@ -91,17 +93,17 @@ router.post('/login',function(request,respeonse){
     //     console.log(`id : ${ID_2}, Pw : ${PW_2}`)
     //     res = "http://localhost:5501/0727Express/public/F.html"
     // }
-    // respeonse.redirect(res)
+    // response.redirect(res)
 })
 
-// router.post('/join',function(request,respeonse){
+// router.post('/join',function(request,response){
 //     console.log('회원가입 사이트 접속 완료')
 //     ID_2 = request.body.ID
 //     PW_2 = request.body.PW
 //     let ID_Nick = request.body.NICK
 //     console.log(ID_2)
 //     console.log(PW_2)
-//     respeonse.redirect("http://localhost:5501/0727Express/public/Login.html")
+//     response.redirect("http://localhost:5501/0727Express/public/Login.html")
    // })  --> router의 값을 전역변수로 설정하는 경우에 한한  정답
 
 
@@ -133,8 +135,7 @@ router.post('/join',function(request,response){
             alter("다시 시도해주세요!")
         } 
 
-    
-   
+
     })
 })
 
@@ -174,6 +175,26 @@ conn.query(sql,[updatePW,updateNICK,updateID],function(err,rows){
         console.log('수정 실패!')
     }
 })
+
+})
+
+router.get('/UserList',function(request,response){
+    console.log('접근 확인!')
+    conn.connect();
+    let sql = 'select * from member;'
+    conn.query(sql,function(err,rows){
+        if(!err){
+            //err -> 쿼리문에 대한오류, DB오류에 대한 정보를 가지고 있다.!
+            //rows -> 쿼리문 실행 데이터  (반드시 err와 rows 둘 중 하나만 값이 담긴다.)
+            console.log('쿼리실행')
+            console.log(rows)
+            response.render("UserList",{UserList:rows})
+        }else{
+            console.log('쿼리실행X')
+        }
+        
+
+    })
 
 })
 
