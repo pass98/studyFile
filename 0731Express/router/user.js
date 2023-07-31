@@ -14,7 +14,7 @@ let conn = mysql.createConnection({
 })
 // mysql 서버 연결 끝
 
-
+// 회원 가입 폼
 router.post('/join',function(request,response){
 
     let id = request.body.ID
@@ -22,7 +22,6 @@ router.post('/join',function(request,response){
     let nick = request.body.NICK
     
      conn.connect();
- 
      let sql = `insert into member values (?,?,?)`;  
      conn.query(sql,[id,pw,nick],function(err,rows){ 
          

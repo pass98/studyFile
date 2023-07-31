@@ -14,8 +14,9 @@ nunjucks.configure('views',{
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 //app.use(router)
-app.use(page)
-app.use(user)
+
+app.use('/page',page)
+app.use('/user',user)
 
 
 app.listen(3000)
