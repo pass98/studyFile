@@ -23,6 +23,9 @@ router.get('/Delete',function(request,response){
 router.get('/Update',function(request,response){
     response.render('Update')
 })
-
+//http://localhost:3000/page/SelectOne
+router.get('/SelectOne',function(request,response){
+    response.render('SelectOne')
+})
 
 module.exports = router ;

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/user/SelectOne" method="get">
+        <input type="text" placeholder="닉네임을 입력하세요" name='nick'>
+        <input type="submit">
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>PW</th>
+            <th>Nick</th>
+        </tr>
+        <tr>
+            <td>{{SelectOne.id}}</td>
+            <td>{{SelectOne.pw}}</td>
+            <td>{{SelectOne.nick}}</td>
+        </tr>
+    </table>
+
+</body>
+</html>

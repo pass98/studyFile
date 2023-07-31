@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/user/selectOne" method="post">
+        <input name="id">
+        <input type="submit">
+    </form>
+    <!-- 밑으로 출력 -->
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>PW</th>
+            <th>Nick</th>
+        </tr>
+        <tr>
+            <td>{{user.id}}</td>
+            <td>{{user.pw}}</td>
+            <td>{{user.nick}}</td>
+        </tr>
+    </table>
+</body>
+
+</html>

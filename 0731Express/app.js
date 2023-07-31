@@ -4,6 +4,7 @@ const app = express();
 const page = require('./router/page')
 const user = require('./router/user')
 
+
 const nunjucks = require('nunjucks')
 
 app.set('view engine','html')    
@@ -15,8 +16,9 @@ app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 //app.use(router)
 
-app.use('/page',page)
-app.use('/user',user)
+app.use('/page',page) // http://loacalhost:3000/page
+app.use('/user',user) // http://localhost:3000/user
+
 
 
 app.listen(3000)
