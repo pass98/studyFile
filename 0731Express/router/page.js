@@ -9,6 +9,7 @@ router.get('/',function(request,response){
 })
 //http://localhost:3000/page/Login
 router.get('/Login',function(request,response){
+    console.log('로그인접속')
     response.render("Login")
 })
 //http://localhost:3000/page/Join
@@ -25,7 +26,11 @@ router.get('/Update',function(request,response){
 })
 //http://localhost:3000/page/SelectOne
 router.get('/SelectOne',function(request,response){
-    response.render('SelectOne')
+    console.log('검색창 접속1')
+    let info = request.cookies.info
+    //let info = request.session.info
+    console.log(info)
+    response.render('SelectOne',{One:info}) //({userInfo :info})
 })
 
 module.exports = router ;

@@ -10,18 +10,32 @@
         <input type="text" placeholder="닉네임을 입력하세요" name='nick'>
         <input type="submit">
     </form>
-    <table>
+
+    <!-- nunjucks 문법에서 값이 없을 때는 출력 자체가 되지 않는다. null, undefind -->
+    <table border = '1px solid black' >
         <tr>
             <th>ID</th>
             <th>PW</th>
             <th>Nick</th>
         </tr>
         <tr>
-            <td>{{SelectOne.id}}</td>
-            <td>{{SelectOne.pw}}</td>
-            <td>{{SelectOne.nick}}</td>
+            <td>{{One.id}}</td>
+            <td>{{One.pw}}</td>
+            <td>{{One.nick}}</td>
         </tr>
     </table>
 
+    {{userInfo.id}}
+    {{userInfo.pw}}
+    {{userInfo.nick}}
+    <!-- 
+        views파일안에서 중괄호{}는 무조건 넌적스파일로 인식한다.
+        
+        넌적스의 데이터를 자바스크립트로 구현하는 방법 
+        {%set date = 10%} 
+    <script>
+        let data = '{{userInfo.id}}'
+        console.log(data)-->
+        <!-- 렌더링 실행흐름으(서버 -> html -> js)로 옮길 수는 있으나 역순은 안됨. -->
 </body>
 </html>
